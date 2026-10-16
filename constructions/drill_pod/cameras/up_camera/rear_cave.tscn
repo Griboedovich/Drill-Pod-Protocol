@@ -64,10 +64,6 @@ autostart = true
 transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0, 0, -3.8146973e-06)
 environment = SubResource("Environment_v3ypp")
 
-[node name="Camera3D2" type="Camera3D" parent="." unique_id=440193550]
-transform = Transform3D(-0.31739685, 0.4298433, -0.8452775, 0, 0.8913676, 0.4532812, 0.9482928, 0.14387003, -0.28291726, -51.06124, 24.89325, -54.772545)
-visible = false
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=555345515]
 transform = Transform3D(-0.28755057, -0.79090285, 0.5401734, 0.5515252, 0.32436118, 0.7685115, -0.7830292, 0.51890516, 0.34293258, 0, 39.531315, 25.824604)
 visible = false

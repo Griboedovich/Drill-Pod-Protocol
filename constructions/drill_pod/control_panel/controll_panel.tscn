@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ct11nm4x84xtu"]
+
+[ext_resource type="PackedScene" uid="uid://dqwx4c857g4q3" path="res://constructions/drill_pod/control_panel/models/controll_table.glb" id="1_67jr4"]
+
+[sub_resource type="Environment" id="Environment_akig0"]
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+
+[node name="ControlPanel" type="Node3D" unique_id=387047306]
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1151103933]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1802850535]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.8650246, 0)
+environment = SubResource("Environment_akig0")
+fov = 60.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot" unique_id=1058576452]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.6797614, 0)
+light_color = Color(0.98724204, 0.9746869, 0.97505766, 1)
+light_energy = 2.0
+
+[node name="controll_table" parent="." unique_id=1044913185 instance=ExtResource("1_67jr4")]

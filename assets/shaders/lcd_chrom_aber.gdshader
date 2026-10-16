@@ -1,0 +1,39 @@
+shader_type canvas_item;
+
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear;
+
+uniform float stripe: hint_range(0.0, 1.0, 0.01) = 0.5;
+uniform float scan:hint_range(0.0, 1.0, 0.01) = 0.5;
+
+uniform float abberation_x: hint_range(-1.0, 1.0) = 0.04;
+uniform float abberation_y: hint_range(-1.0, 1.0) = 0.04;
+
+void fragment() {
+	vec3 lcd = vec3(stripe, stripe, stripe);
+	int rgb_stripe = int(mod(FRAGCOORD.x, 3.0));
+	if (rgb_stripe == 1){
+		lcd.r = 1.0;
+	} else if (rgb_stripe == 2){
+		lcd.g = 1.0;
+	} else {
+		lcd.b = 1.0;
+	}
+	
+	if (int(mod(FRAGCOORD.y, 3.0)) == 0){
+		lcd.rgb = vec3(scan);
+	}
+	
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(SCREEN_TEXTURE, 0));
+	vec2 offset = vec2(
+		abberation_x * pixel_size.x,
+		abberation_y * pixel_size.y
+	) * 100.0;
+
+	vec3 final_color;
+	final_color.r = texture(SCREEN_TEXTURE,SCREEN_UV + offset).r;
+	final_color.g = texture(SCREEN_TEXTURE,SCREEN_UV).g;
+	final_color.b = texture(SCREEN_TEXTURE,SCREEN_UV - offset).b;
+	
+	COLOR.rgb = final_color * lcd;
+}

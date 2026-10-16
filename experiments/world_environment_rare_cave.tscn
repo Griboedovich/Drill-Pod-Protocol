@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dhgxkf2dsabga"]
+
+[sub_resource type="Environment" id="Environment_gd8s4"]
+background_mode = 1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_axm2t"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1452441453]
+environment = SubResource("Environment_gd8s4")
+camera_attributes = SubResource("CameraAttributesPractical_axm2t")

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://baeima4kyj82v"]
+
+[ext_resource type="Texture2D" uid="uid://b5wr2g8la038o" path="res://assets/example_images/Frame.png" id="1_78crx"]
+[ext_resource type="Shader" uid="uid://dwyp2rw3e10ne" path="res://assets/shaders/lcd.gdshader" id="1_ljf0a"]
+[ext_resource type="Shader" uid="uid://ddobf2p703qiv" path="res://assets/shaders/chromatic_aberration.gdshader" id="2_ljf0a"]
+[ext_resource type="Shader" uid="uid://dm3gvf50585f7" path="res://assets/shaders/lcd_chrom_aber.gdshader" id="4_qy2aa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axm2t"]
+shader = ExtResource("2_ljf0a")
+shader_parameter/abberation_x = 0.03000004892500007
+shader_parameter/abberation_y = 0.03000004892500007
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xln27"]
+shader = ExtResource("1_ljf0a")
+shader_parameter/stripe = 0.3999999910592
+shader_parameter/scan = 0.3999999910592
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy2aa"]
+shader = ExtResource("4_qy2aa")
+shader_parameter/stripe = 0.5
+shader_parameter/scan = 0.5
+shader_parameter/abberation_x = 0.03000004892500007
+shader_parameter/abberation_y = 0.03000004892500007
+
+[node name="TestShaderScene" type="Node2D" unique_id=680594423]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=800528744]
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_78crx")
+centered = false
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2118362985]
+visible = false
+material = SubResource("ShaderMaterial_axm2t")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1563516588]
+visible = false
+material = SubResource("ShaderMaterial_xln27")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1656270145]
+material = SubResource("ShaderMaterial_qy2aa")
+offset_right = 1152.0
+offset_bottom = 648.0

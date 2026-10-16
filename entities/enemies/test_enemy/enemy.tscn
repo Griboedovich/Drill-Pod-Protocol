@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bls3fyproqgkh"]
+
+[ext_resource type="Script" uid="uid://drs8dyyxfg8k" path="res://entities/enemies/test_enemy/enemy.gd" id="1_7p1mj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_axm2t"]
+
+[node name="Enemy" type="Node3D" unique_id=1261431028]
+script = ExtResource("1_7p1mj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1213115368]
+mesh = SubResource("BoxMesh_axm2t")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=662572319]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_screen_exited"]

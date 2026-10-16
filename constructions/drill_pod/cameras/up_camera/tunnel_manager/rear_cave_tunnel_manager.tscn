@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dsnahq3h28c62"]
+
+[ext_resource type="Script" uid="uid://cu0vp5uvvy4gn" path="res://constructions/drill_pod/cameras/up_camera/tunnel_manager/rear_cave_tunnel_manager.gd" id="1_up4kd"]
+[ext_resource type="PackedScene" uid="uid://bnmg8se280e2c" path="res://constructions/drill_pod/cameras/up_camera/tunnel_manager/models/rear_cave_tunnel.glb" id="2_62hix"]
+
+[node name="RearCaveTunnelManager" type="Node3D" unique_id=1699278083]
+script = ExtResource("1_up4kd")
+gap = 0.0
+
+[node name="rear_cave_tunnel_1" parent="." unique_id=1696886056 instance=ExtResource("2_62hix")]
+
+[node name="rear_cave_tunnel_2" parent="." unique_id=546108175 instance=ExtResource("2_62hix")]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ct11nm4x84xtu"]
+
+[ext_resource type="PackedScene" uid="uid://dc8hk0jdxeo7q" path="res://constructions/drill_pod/control_panel/models/Buttons.glb" id="1_7b1ge"]
+
+[node name="MainMenu" type="Node3D" unique_id=387047306]
+
+[node name="PanelBar" type="Node3D" parent="." unique_id=1900981672]
+
+[node name="Buttons" parent="PanelBar" unique_id=1497545113 instance=ExtResource("1_7b1ge")]
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1151103933]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1802850535]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.465, 0)

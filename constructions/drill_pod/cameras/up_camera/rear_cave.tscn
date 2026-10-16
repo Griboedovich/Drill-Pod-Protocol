@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bq1men2s82tp7"]
+
+[ext_resource type="Script" uid="uid://ystmd4hlmkb2" path="res://constructions/drill_pod/cameras/up_camera/rear_cave.gd" id="1_bn3ke"]
+[ext_resource type="PackedScene" uid="uid://bls3fyproqgkh" path="res://entities/enemies/test_enemy/enemy.tscn" id="2_akig0"]
+[ext_resource type="PackedScene" uid="uid://dsnahq3h28c62" path="res://constructions/drill_pod/cameras/up_camera/tunnel_manager/rear_cave_tunnel_manager.tscn" id="3_8rpec"]
+[ext_resource type="PackedScene" uid="uid://bnh1glb01y2vh" path="res://constructions/drill_pod/cameras/up_camera/tunnel_manager/models/rear_cave_dead_end.glb" id="4_7tpct"]
+[ext_resource type="Shader" uid="uid://dm3gvf50585f7" path="res://assets/shaders/lcd_chrom_aber.gdshader" id="5_nrdsv"]
+
+[sub_resource type="Curve3D" id="Curve3D_4itgq"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.014031272, 2.0625858, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -0.831149, 1.8854775, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -1.4443783, 1.4427073, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -1.8509843, 0.93601525, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -1.9577193, 0.3871014, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -1.7401454, -0.30138904, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -1.6038946, -1.0618184, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -1.1924032, -1.6924486, 2.2888184e-05, 0, 0, 0, 0, 0, 0, -0.50430137, -1.906893, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 0.43792623, -2.0257473, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 1.3349904, -1.6107785, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 1.8851187, -1.021976, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 2.0775645, -0.34185645, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 2.1446292, 0.44040814, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 1.8464773, 1.4266075, 2.2888184e-05, 0, 0, 0, 0, 0, 0, 1.1077317, 1.9375849, 2.2888184e-05),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 16
+
+[sub_resource type="Environment" id="Environment_v3ypp"]
+background_mode = 1
+background_color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+background_energy_multiplier = 4.69
+ambient_light_energy = 1.75
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.0615
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ypp"]
+shader = ExtResource("5_nrdsv")
+shader_parameter/stripe = 0.5
+shader_parameter/scan = 0.5
+shader_parameter/abberation_x = 0.03000004892500007
+shader_parameter/abberation_y = 0.03000004892500007
+
+[node name="RearCave" type="Node3D" unique_id=635761099]
+script = ExtResource("1_bn3ke")
+enemy_scene = ExtResource("2_akig0")
+
+[node name="RearCaveTunnelManager" parent="." unique_id=1699278083 instance=ExtResource("3_8rpec")]
+
+[node name="rear_cave_dead_end" parent="." unique_id=1709636292 instance=ExtResource("4_7tpct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -59.58525)
+
+[node name="EnemySpawnPath" type="Path3D" parent="." unique_id=139170724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -63.93688)
+curve = SubResource("Curve3D_4itgq")
+
+[node name="EnemySpawnLocation" type="PathFollow3D" parent="EnemySpawnPath" unique_id=542659997]
+transform = Transform3D(-1.6130579e-07, -0.21182588, 0.9772929, -7.450581e-09, 0.9772929, 0.21182588, -1, 2.688734e-08, -1.5922123e-07, -0.014031272, 2.0625858, 2.2888184e-05)
+
+[node name="Marker3D" type="Marker3D" parent="EnemySpawnPath" unique_id=1306368986]
+gizmo_extents = 2.5
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1430366250]
+light_color = Color(1.1291975, 1.0543667, 0.95312506, 1)
+light_energy = 16.0
+spot_range = 70.0
+spot_attenuation = 2.0
+spot_angle = 58.0
+
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1443669267]
+wait_time = 0.5
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=833055308]
+transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0, 0, -3.8146973e-06)
+environment = SubResource("Environment_v3ypp")
+
+[node name="Camera3D2" type="Camera3D" parent="." unique_id=440193550]
+transform = Transform3D(-0.31739685, 0.4298433, -0.8452775, 0, 0.8913676, 0.4532812, 0.9482928, 0.14387003, -0.28291726, -51.06124, 24.89325, -54.772545)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=555345515]
+transform = Transform3D(-0.28755057, -0.79090285, 0.5401734, 0.5515252, 0.32436118, 0.7685115, -0.7830292, 0.51890516, 0.34293258, 0, 39.531315, 25.824604)
+visible = false
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1616867446]
+material = SubResource("ShaderMaterial_v3ypp")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

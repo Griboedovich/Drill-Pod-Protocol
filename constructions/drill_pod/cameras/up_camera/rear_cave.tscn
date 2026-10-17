@@ -56,6 +56,7 @@ autostart = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=555345515]
 transform = Transform3D(-0.28755057, -0.79090285, 0.5401734, 0.5515252, 0.32436118, 0.7685115, -0.7830292, 0.51890516, 0.34293258, 0, 39.531315, 25.824604)
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1430366250]
 light_color = Color(1.1291975, 1.0543667, 0.95312506, 1)
@@ -76,6 +77,7 @@ environment = SubResource("Environment_bn3ke")
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=227574374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 target_position = Vector3(0, 0, -1)
+hit_back_faces = false
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 3
 

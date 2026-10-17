@@ -5,7 +5,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_axm2t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xr82"]
-size = Vector3(0.9, 0.9, 0.9)
 
 [node name="Enemy" type="Node3D" unique_id=1261431028]
 script = ExtResource("1_7p1mj")

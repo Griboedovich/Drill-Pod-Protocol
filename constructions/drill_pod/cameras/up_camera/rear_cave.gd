@@ -10,7 +10,7 @@ extends Node3D
 )
 @onready var ray = $Camera3D/RayCast3D
 
-const RAY_LENGTH = 50
+const RAY_LENGTH = 30
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	var speed = randf_range(speed_range.x, speed_range.y)
@@ -21,14 +21,13 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	enemy.direction = enemy_direction
 	add_child(enemy)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	var space_state = get_world_3d().direct_space_state
 	var cam = $Camera3D
 	var mousePos = get_viewport().get_mouse_position()
 	
 	if Input.is_action_just_pressed("shoot"):
 		ray.target_position = cam.project_ray_normal(mousePos) * RAY_LENGTH
+		ray.force_raycast_update()
 		
 		if ray.is_colliding() and ray.get_collider().is_class("StaticBody3D"):
-			ray.get_collider().free()
+				ray.get_collider().get_parent().free()

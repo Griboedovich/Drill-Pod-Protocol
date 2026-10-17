@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dc8hk0jdxeo7q"
-path="res://.godot/imported/Buttons.glb-24fb0b1c4d37ff0596388dd10219bc9e.scn"
+uid="uid://dld2sjaqjcm5b"
+path="res://.godot/imported/controll_connector.glb-efe25d2098168f4b0a09ae25f67a3dc5.scn"
 
 [deps]
 
-source_file="res://constructions/drill_pod/control_panel/models/Buttons.glb"
-dest_files=["res://.godot/imported/Buttons.glb-24fb0b1c4d37ff0596388dd10219bc9e.scn"]
+source_file="res://constructions/drill_pod/control_panel/controll_cable/models/controll_connector.glb"
+dest_files=["res://.godot/imported/controll_connector.glb-efe25d2098168f4b0a09ae25f67a3dc5.scn"]
 
 [params]
 

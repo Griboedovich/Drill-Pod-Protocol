@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ct11nm4x84xtu"]
+
+[ext_resource type="PackedScene" uid="uid://dqwx4c857g4q3" path="res://constructions/drill_pod/control_panel/models/controll_table.glb" id="1_67jr4"]
+[ext_resource type="Script" uid="uid://ca3qk17yctuu2" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
+[ext_resource type="PackedScene" uid="uid://232f3aspsn6n" path="res://constructions/drill_pod/control_panel/controll_cable/controll_cable.tscn" id="3_jcpne"]
+[ext_resource type="PackedScene" uid="uid://o50pu4i0gie1" path="res://constructions/drill_pod/control_panel/cabel_nest/cabel_nest.tscn" id="4_8pgvh"]
+
+[sub_resource type="Environment" id="Environment_akig0"]
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+
+[node name="ControlPanel" type="Node3D" unique_id=387047306]
+script = ExtResource("1_qlgiq")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1151103933]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1802850535]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.8650246, 0)
+environment = SubResource("Environment_akig0")
+fov = 60.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot" unique_id=1058576452]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.6797614, 0)
+light_color = Color(0.98724204, 0.9746869, 0.97505766, 1)
+light_energy = 2.0
+
+[node name="controll_table" parent="." unique_id=1044913185 instance=ExtResource("1_67jr4")]
+
+[node name="ControllCable" parent="." unique_id=1319346626 instance=ExtResource("3_jcpne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5402918, 0)
+
+[node name="CabelNest" parent="." unique_id=1809607786 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.087996125, 0.49999952, -0.7002606)
+
+[node name="CabelNest2" parent="." unique_id=1710748037 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06522608, 0.49999952, 0.6257884)
+
+[node name="CabelNest3" parent="." unique_id=1076630157 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(0.7318908, 0.68142194, 0, -0.68142194, 0.7318908, 0, 0, 0, 1, -1.3675958, 1.0590999, 0.104417324)
+
+[node name="CabelNest4" parent="." unique_id=1111133756 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(0.76872456, -0.6395801, 0, 0.6395801, 0.76872456, 0, 0, 0, 1, 1.2321041, 0.9437994, -0.007442713)

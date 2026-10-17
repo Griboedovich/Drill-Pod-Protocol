@@ -31,6 +31,7 @@ transform = Transform3D(-1.2358238e-06, 0, 28.272352, 0, 28.272352, 0, -28.27235
 environment = SubResource("Environment_v3ypp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=646716646]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=26896125]
 material = SubResource("ShaderMaterial_njsjv")

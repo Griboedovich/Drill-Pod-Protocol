@@ -4,12 +4,19 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_axm2t"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xr82"]
+
 [node name="Enemy" type="Node3D" unique_id=1261431028]
 script = ExtResource("1_7p1mj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1213115368]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=662572319]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=585745660]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1213115368]
 mesh = SubResource("BoxMesh_axm2t")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=662572319]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1995062918]
+shape = SubResource("BoxShape3D_6xr82")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_screen_exited"]

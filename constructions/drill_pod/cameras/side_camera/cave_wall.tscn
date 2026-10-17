@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d37l3mos8swwi"]
+
+[ext_resource type="Script" uid="uid://cksvj5wo31wcx" path="res://constructions/drill_pod/cameras/side_camera/cave_wall.gd" id="1_h3hur"]
+[ext_resource type="PackedScene" uid="uid://b72i82ksi2bbk" path="res://constructions/drill_pod/cameras/side_camera/cave_manager/cave_wall_manager.tscn" id="2_2mr5g"]
+[ext_resource type="Shader" uid="uid://dm3gvf50585f7" path="res://assets/shaders/lcd_chrom_aber.gdshader" id="3_2mr5g"]
+
+[sub_resource type="Environment" id="Environment_v3ypp"]
+background_mode = 1
+background_color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+background_energy_multiplier = 4.69
+ambient_light_energy = 1.75
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.0615
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njsjv"]
+shader = ExtResource("3_2mr5g")
+shader_parameter/stripe = 0.5
+shader_parameter/scan = 0.5
+shader_parameter/abberation_x = 0.04
+shader_parameter/abberation_y = 0.04
+
+[node name="CaveWall" type="Node3D" unique_id=955527142]
+script = ExtResource("1_h3hur")
+
+[node name="CaveWallManager" parent="." unique_id=927874523 instance=ExtResource("2_2mr5g")]
+transform = Transform3D(0.9848077, 0, -0.17364818, 0, 1, 0, 0.17364818, 0, 0.9848077, 0, 0, -2.5)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1710825396]
+transform = Transform3D(-1.2358238e-06, 0, 28.272352, 0, 28.272352, 0, -28.272352, 0, -1.2358238e-06, 0, 3, 0)
+environment = SubResource("Environment_v3ypp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=646716646]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=26896125]
+material = SubResource("ShaderMaterial_njsjv")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1967540640]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 0)
+light_color = Color(1.1291975, 1.0543667, 0.95312506, 1)
+light_energy = 4.0
+spot_range = 70.0
+spot_attenuation = 2.0
+spot_angle = 58.0

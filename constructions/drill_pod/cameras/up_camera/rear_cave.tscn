@@ -14,7 +14,14 @@ _data = {
 }
 point_count = 16
 
-[sub_resource type="Environment" id="Environment_v3ypp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ypp"]
+shader = ExtResource("5_nrdsv")
+shader_parameter/stripe = 0.5
+shader_parameter/scan = 0.5
+shader_parameter/abberation_x = 0.03000004892500007
+shader_parameter/abberation_y = 0.03000004892500007
+
+[sub_resource type="Environment" id="Environment_bn3ke"]
 background_mode = 1
 background_color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 background_energy_multiplier = 4.69
@@ -23,18 +30,12 @@ fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.0615
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ypp"]
-shader = ExtResource("5_nrdsv")
-shader_parameter/stripe = 0.5
-shader_parameter/scan = 0.5
-shader_parameter/abberation_x = 0.03000004892500007
-shader_parameter/abberation_y = 0.03000004892500007
-
 [node name="RearCave" type="Node3D" unique_id=635761099]
 script = ExtResource("1_bn3ke")
 enemy_scene = ExtResource("2_akig0")
 
 [node name="RearCaveTunnelManager" parent="." unique_id=1699278083 instance=ExtResource("3_8rpec")]
+gap = 0.04
 
 [node name="rear_cave_dead_end" parent="." unique_id=1709636292 instance=ExtResource("4_7tpct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -59.58525)
@@ -49,6 +50,14 @@ transform = Transform3D(-1.6130579e-07, -0.21182588, 0.9772929, -7.450581e-09, 0
 [node name="Marker3D" type="Marker3D" parent="EnemySpawnPath" unique_id=1306368986]
 gizmo_extents = 2.5
 
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1443669267]
+wait_time = 0.5
+autostart = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=555345515]
+transform = Transform3D(-0.28755057, -0.79090285, 0.5401734, 0.5515252, 0.32436118, 0.7685115, -0.7830292, 0.51890516, 0.34293258, 0, 39.531315, 25.824604)
+visible = false
+
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1430366250]
 light_color = Color(1.1291975, 1.0543667, 0.95312506, 1)
 light_energy = 16.0
@@ -56,21 +65,20 @@ spot_range = 70.0
 spot_attenuation = 2.0
 spot_angle = 58.0
 
-[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1443669267]
-wait_time = 0.5
-autostart = true
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=833055308]
-transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0, 0, -3.8146973e-06)
-environment = SubResource("Environment_v3ypp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=555345515]
-transform = Transform3D(-0.28755057, -0.79090285, 0.5401734, 0.5515252, 0.32436118, 0.7685115, -0.7830292, 0.51890516, 0.34293258, 0, 39.531315, 25.824604)
-visible = false
-
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1616867446]
 material = SubResource("ShaderMaterial_v3ypp")
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=833055308]
+transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0, 0, -3.8146973e-06)
+environment = SubResource("Environment_bn3ke")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=227574374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+target_position = Vector3(0, 0, -1)
+hit_back_faces = false
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 3
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b72i82ksi2bbk"]
+
+[ext_resource type="Script" uid="uid://40u1uatruqm0" path="res://constructions/drill_pod/cameras/side_camera/cave_manager/cave_wall_manager.gd" id="1_fglfs"]
+[ext_resource type="PackedScene" uid="uid://cmp5ubwk5fv2x" path="res://constructions/drill_pod/cameras/side_camera/cave_manager/models/CaveWall.glb" id="2_rphwx"]
+
+[node name="CaveWallManager" type="Node3D" unique_id=927874523]
+script = ExtResource("1_fglfs")
+
+[node name="CaveWall1" parent="." unique_id=667766464 instance=ExtResource("2_rphwx")]
+
+[node name="CaveWall2" parent="." unique_id=1900179879 instance=ExtResource("2_rphwx")]

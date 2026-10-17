@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		ray.target_position = cam.project_ray_normal(mousePos) * RAY_LENGTH
+		print("loh")
 		
 		if ray.is_colliding() and ray.get_collider().is_class("StaticBody3D"):
 			ray.get_collider().free()

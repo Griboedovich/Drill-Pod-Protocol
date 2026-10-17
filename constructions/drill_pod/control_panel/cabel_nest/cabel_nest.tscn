@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://o50pu4i0gie1"]
+
+[ext_resource type="PackedScene" uid="uid://ckc315qioqupi" path="res://constructions/drill_pod/control_panel/cabel_nest/models/connector_jack.glb" id="1_v64fy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axm2t"]
+size = Vector3(0.35940552, 0.095825195, 0.3579712)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gd8s4"]
+size = Vector3(0.45269775, 1, 1)
+
+[node name="CabelNest" type="Node3D" unique_id=1809607786]
+
+[node name="connector_jack" parent="." unique_id=295721145 instance=ExtResource("1_v64fy")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=820353140]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1551213673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001083374, 0.04437256, -0.00015258789)
+shape = SubResource("BoxShape3D_axm2t")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1347826552]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2140255750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00064086914, 0.49441856, 0)
+shape = SubResource("BoxShape3D_gd8s4")

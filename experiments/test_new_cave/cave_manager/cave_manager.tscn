@@ -7,8 +7,8 @@
 [node name="CaveManager" type="Node3D" unique_id=1693955330]
 script = ExtResource("1_maxl5")
 
-[node name="cross_tunnel" parent="." unique_id=1737826117 instance=ExtResource("1_k0o4r")]
-
 [node name="straight_tunnel1" parent="." unique_id=551983849 instance=ExtResource("2_maxl5")]
 
-[node name="straight_tunnel2" parent="." unique_id=1069931759 instance=ExtResource("2_maxl5")]
+[node name="straight_tunnel2" parent="." unique_id=853117943 instance=ExtResource("2_maxl5")]
+
+[node name="cross_tunnel" parent="." unique_id=1737826117 instance=ExtResource("1_k0o4r")]

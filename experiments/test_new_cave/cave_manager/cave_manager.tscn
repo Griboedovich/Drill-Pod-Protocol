@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://pqdv7pbrp6q5"]
+
+[ext_resource type="PackedScene" uid="uid://c6is6cqop2y04" path="res://experiments/test_new_cave/cave_manager/models/cross_tunnel.glb" id="1_k0o4r"]
+[ext_resource type="Script" uid="uid://fxjadagik8b2" path="res://experiments/test_new_cave/cave_manager/cave_manager.gd" id="1_maxl5"]
+[ext_resource type="PackedScene" uid="uid://clcgue5v45r7h" path="res://experiments/test_new_cave/cave_manager/models/straight_tunnel.glb" id="2_maxl5"]
+
+[node name="CaveManager" type="Node3D" unique_id=1693955330]
+script = ExtResource("1_maxl5")
+
+[node name="straight_tunnel1" parent="." unique_id=551983849 instance=ExtResource("2_maxl5")]
+
+[node name="straight_tunnel2" parent="." unique_id=853117943 instance=ExtResource("2_maxl5")]
+
+[node name="cross_tunnel" parent="." unique_id=1737826117 instance=ExtResource("1_k0o4r")]

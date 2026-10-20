@@ -98,6 +98,7 @@ func _drag_object(object: Plug):
 	self.dragging_object.angular_velocity = Vector3.ZERO
 	self.dragging_object.set_collision_layer(drag_object_collision_mask)
 	if dragging_object.is_freeze_enabled():
+		# Нужно выделить в отдельную функцию дисконекта
 		dragging_object.set_freeze_enabled(false)
 		dragging_object.connected_socket.activate()
 		on_plug_disconnect_with_socket.emit(
@@ -166,13 +167,11 @@ func get_mouse_intersect(
 
 
 func _on_socket_plug_entered(plug: Plug, socket: Socket) -> void:
-	print("entered")
 	if is_dragging and dragging_object == plug:
 		connectable_socket = socket
 		self.is_connecting = true
 
 func _on_socket_plug_exited(plug: Plug, socket: Socket) -> void:
-	print("exited")
 	if is_connecting and connectable_socket == socket:
 		connectable_socket = null
 		self.is_connecting = false

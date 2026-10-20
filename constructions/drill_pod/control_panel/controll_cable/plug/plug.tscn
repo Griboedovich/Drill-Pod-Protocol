@@ -8,8 +8,8 @@ radius = 0.1821289
 height = 0.5275879
 
 [node name="Plug" type="RigidBody3D" unique_id=950700488]
-collision_layer = 128
-collision_mask = 129
+collision_layer = 64
+collision_mask = 65
 script = ExtResource("1_fw0rt")
 
 [node name="controll_connector2" parent="." unique_id=939763170 instance=ExtResource("1_6ns1i")]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dkokacgbsrs75" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
 [ext_resource type="Script" uid="uid://bg3h4pcjqb30u" path="res://constructions/drill_pod/control_panel/camera_controller.gd" id="3_8pgvh"]
 [ext_resource type="PackedScene" uid="uid://232f3aspsn6n" path="res://constructions/drill_pod/control_panel/controll_cable/controll_cable.tscn" id="3_jcpne"]
+[ext_resource type="PackedScene" uid="uid://o50pu4i0gie1" path="res://constructions/drill_pod/control_panel/socket/socket.tscn" id="4_8pgvh"]
 
 [sub_resource type="Environment" id="Environment_akig0"]
 background_energy_multiplier = 0.0
@@ -21,6 +22,9 @@ size = Vector3(8.330597, 1, 5.1916504)
 [node name="ControlPanel" type="Node3D" unique_id=387047306]
 script = ExtResource("1_qlgiq")
 
+[node name="Controllers" type="Node3D" parent="." unique_id=190579481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8733546, 0.48928303, 0)
+
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1151103933]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1802850535]
@@ -38,9 +42,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5402918, 0)
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1809757513]
 script = ExtResource("3_8pgvh")
+metadata/_edit_lock_ = true
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1528680362]
+metadata/_edit_lock_ = true
+
+[node name="Camera1Socket" parent="Sockets" unique_id=1347826552 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.508, 0.483, -0.4)
+
+[node name="Camera2Socket" parent="Sockets" unique_id=233172131 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.508, 0.483, 0.4)
+
+[node name="MainSocket" parent="Sockets" unique_id=1535801215 instance=ExtResource("4_8pgvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8733546, 0.48928303, 0)
 
 [node name="Table" type="StaticBody3D" parent="." unique_id=1430861268]
-collision_mask = 129
+collision_mask = 64
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1795443805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, 0, -0.020812988)

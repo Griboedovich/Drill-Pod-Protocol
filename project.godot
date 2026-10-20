@@ -20,10 +20,6 @@ config/icon="res://assets/icons/icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
-
 [input]
 
 shoot={
@@ -40,7 +36,8 @@ drag_and_drop={
 [layer_names]
 
 3d_physics/layer_1="Ground"
-3d_physics/layer_8="Drag and drop objects"
+3d_physics/layer_7="Dropped object"
+3d_physics/layer_8="Draggable objects"
 
 [physics]
 

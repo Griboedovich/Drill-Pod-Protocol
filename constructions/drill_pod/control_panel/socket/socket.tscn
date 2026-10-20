@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://o50pu4i0gie1"]
+
+[ext_resource type="Script" uid="uid://bb1merib1jt63" path="res://constructions/drill_pod/control_panel/socket/socket.gd" id="1_oobxh"]
+[ext_resource type="PackedScene" uid="uid://ckc315qioqupi" path="res://constructions/drill_pod/control_panel/socket/models/socket.glb" id="1_v64fy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gd8s4"]
+size = Vector3(0.3604889, 1.0063782, 0.36810303)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axm2t"]
+size = Vector3(0.35940552, 0.095825195, 0.3579712)
+
+[node name="Socket" type="Node3D" unique_id=233172131]
+script = ExtResource("1_oobxh")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=860651692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08756488, 0)
+
+[node name="Marker3D" type="Marker3D" parent="Pivot" unique_id=1264711783]
+
+[node name="ConnectArea" type="Area3D" parent="." unique_id=1347826552]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConnectArea" unique_id=2140255750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0.52859193, 0.001)
+shape = SubResource("BoxShape3D_gd8s4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=820353140]
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1551213673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001083374, 0.04437256, -0.00015258789)
+shape = SubResource("BoxShape3D_axm2t")
+
+[node name="connector_jack" parent="StaticBody3D" unique_id=295721145 instance=ExtResource("1_v64fy")]
+
+[connection signal="body_entered" from="ConnectArea" to="." method="_on_connect_area_body_entered"]
+[connection signal="body_exited" from="ConnectArea" to="." method="_on_connect_area_body_exited"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ct11nm4x84xtu"]
 
-[ext_resource type="Script" uid="uid://dkokacgbsrs75" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
+[ext_resource type="Script" uid="uid://ca3qk17yctuu2" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
+[ext_resource type="Script" uid="uid://dkokacgbsrs75" path="res://constructions/drill_pod/control_panel/drag_and_drop_controller.gd" id="2_8pgvh"]
 [ext_resource type="Script" uid="uid://bg3h4pcjqb30u" path="res://constructions/drill_pod/control_panel/camera_controller.gd" id="3_8pgvh"]
 [ext_resource type="PackedScene" uid="uid://232f3aspsn6n" path="res://constructions/drill_pod/control_panel/controll_cable/controll_cable.tscn" id="3_jcpne"]
 [ext_resource type="PackedScene" uid="uid://o50pu4i0gie1" path="res://constructions/drill_pod/control_panel/socket/socket.tscn" id="4_8pgvh"]
@@ -22,8 +23,13 @@ size = Vector3(8.330597, 1, 5.1916504)
 [node name="ControlPanel" type="Node3D" unique_id=387047306]
 script = ExtResource("1_qlgiq")
 
-[node name="Controllers" type="Node3D" parent="." unique_id=190579481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8733546, 0.48928303, 0)
+[node name="Controllers" type="Node" parent="." unique_id=103091690]
+
+[node name="CameraController" type="Node" parent="Controllers" unique_id=2036956979]
+script = ExtResource("3_8pgvh")
+
+[node name="DragAndDropController" type="Node" parent="Controllers" unique_id=92030119]
+script = ExtResource("2_8pgvh")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1151103933]
 
@@ -39,10 +45,6 @@ light_energy = 2.0
 
 [node name="ControllCable" parent="." unique_id=1319346626 instance=ExtResource("3_jcpne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5402918, 0)
-
-[node name="CameraController" type="Node3D" parent="." unique_id=1809757513]
-script = ExtResource("3_8pgvh")
-metadata/_edit_lock_ = true
 
 [node name="Sockets" type="Node3D" parent="." unique_id=1528680362]
 metadata/_edit_lock_ = true
@@ -93,3 +95,6 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.045, 7.715, 2)
 shape = SubResource("WorldBoundaryShape3D_axm2t")
 metadata/_edit_lock_ = true
+
+[connection signal="on_plug_connect_with_socket" from="Controllers/DragAndDropController" to="." method="_on_plug_connect_with_socket"]
+[connection signal="on_plug_disconnect_with_socket" from="Controllers/DragAndDropController" to="." method="_on_plug_disconnect_with_socket"]

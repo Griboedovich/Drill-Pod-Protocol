@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var camera_angle = deg_to_rad(20)
 
@@ -10,7 +10,7 @@ var pivot_base_rotation
 
 func _input(event: InputEvent) -> void:
 	if (camera_pivot == null):
-		camera_pivot = $"../CameraPivot"
+		camera_pivot = get_node("/root/ControlPanel/CameraPivot")
 		return
 	if (pivot_base_rotation == null):
 		pivot_base_rotation = camera_pivot.rotation

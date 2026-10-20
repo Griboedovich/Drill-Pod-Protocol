@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ckc315qioqupi"
-path="res://.godot/imported/connector_jack.glb-5d3e479c7a49a73e86a786f7f0f54f99.scn"
+path="res://.godot/imported/socket.glb-6ba2c43445e4fa5d40aee6c4b0ff2888.scn"
 
 [deps]
 
-source_file="res://constructions/drill_pod/control_panel/cabel_nest/models/connector_jack.glb"
-dest_files=["res://.godot/imported/connector_jack.glb-5d3e479c7a49a73e86a786f7f0f54f99.scn"]
+source_file="res://constructions/drill_pod/control_panel/socket/models/socket.glb"
+dest_files=["res://.godot/imported/socket.glb-6ba2c43445e4fa5d40aee6c4b0ff2888.scn"]
 
 [params]
 

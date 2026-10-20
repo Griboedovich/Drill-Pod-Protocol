@@ -23,5 +23,4 @@ func _input(event: InputEvent) -> void:
 		var coff = (mouse_position / viewport_size) - Vector2(0.5, 0.5)
 		camera_pivot.rotation.x = pivot_base_rotation.x + camera_angle *  coff.y
 		camera_pivot.rotation.z = pivot_base_rotation.z + camera_angle * 16/9 *  -coff.x
-		print(mouse_position, coff)
 		

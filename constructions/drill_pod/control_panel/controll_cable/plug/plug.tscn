@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c255ondfsuelv"]
+
+[ext_resource type="PackedScene" uid="uid://dld2sjaqjcm5b" path="res://constructions/drill_pod/control_panel/controll_cable/plug/models/controll_connector.glb" id="1_6ns1i"]
+[ext_resource type="Script" uid="uid://bsbqxe6ut77vl" path="res://constructions/drill_pod/control_panel/controll_cable/plug/plug.gd" id="1_fw0rt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_axm2t"]
+radius = 0.1821289
+height = 0.5275879
+
+[node name="Plug" type="RigidBody3D" unique_id=950700488]
+collision_layer = 128
+collision_mask = 129
+script = ExtResource("1_fw0rt")
+
+[node name="controll_connector2" parent="." unique_id=939763170 instance=ExtResource("1_6ns1i")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=619176372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1881296, 0)
+shape = SubResource("CapsuleShape3D_axm2t")

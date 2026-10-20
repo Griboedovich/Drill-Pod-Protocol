@@ -8,5 +8,6 @@ script = ExtResource("1_up4kd")
 gap = 0.0
 
 [node name="rear_cave_tunnel_1" parent="." unique_id=1696886056 instance=ExtResource("2_62hix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032470703, 0, 0.09375)
 
 [node name="rear_cave_tunnel_2" parent="." unique_id=546108175 instance=ExtResource("2_62hix")]

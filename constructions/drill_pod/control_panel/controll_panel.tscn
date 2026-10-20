@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ct11nm4x84xtu"]
 
-[ext_resource type="Script" uid="uid://ca3qk17yctuu2" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
+[ext_resource type="Script" uid="uid://dkokacgbsrs75" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
 [ext_resource type="Script" uid="uid://bg3h4pcjqb30u" path="res://constructions/drill_pod/control_panel/camera_controller.gd" id="3_8pgvh"]
 [ext_resource type="PackedScene" uid="uid://232f3aspsn6n" path="res://constructions/drill_pod/control_panel/controll_cable/controll_cable.tscn" id="3_jcpne"]
 
@@ -40,38 +40,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5402918, 0)
 script = ExtResource("3_8pgvh")
 
 [node name="Table" type="StaticBody3D" parent="." unique_id=1430861268]
+collision_mask = 129
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1795443805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, 0, -0.020812988)
 mesh = SubResource("BoxMesh_axm2t")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=195137618]
+[node name="Ground" type="CollisionShape3D" parent="Table" unique_id=195137618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0039978027, 0, -0.023071289)
 shape = SubResource("BoxShape3D_axm2t")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Table" unique_id=1597549663]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.172095, 7.7150326, -0.046142578)
+[node name="LeftWall" type="CollisionShape3D" parent="Table" unique_id=1597549663]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -3, 7.715, 0)
 shape = SubResource("WorldBoundaryShape3D_axm2t")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Table" unique_id=442084532]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 3.4330654, 7.7150326, -0.046142578)
+[node name="RightWall" type="CollisionShape3D" parent="Table" unique_id=442084532]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 3, 7.715, 0)
 shape = SubResource("WorldBoundaryShape3D_axm2t")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Table" unique_id=1663169966]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.044748306, 7.7150326, -2.6193035)
+[node name="FrontWall" type="CollisionShape3D" parent="Table" unique_id=1663169966]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.045, 7.715, -2)
 shape = SubResource("WorldBoundaryShape3D_axm2t")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Table" unique_id=1973354203]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.044748306, 3.382617, -2.6193035)
+[node name="UpWall" type="CollisionShape3D" parent="Table" unique_id=1973354203]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.045, 5, -2.619)
 shape = SubResource("WorldBoundaryShape3D_axm2t")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Table" unique_id=1072086991]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.044748306, 7.7150326, 2.5766523)
+[node name="BackWall" type="CollisionShape3D" parent="Table" unique_id=1072086991]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.045, 7.715, 2)
 shape = SubResource("WorldBoundaryShape3D_axm2t")
 metadata/_edit_lock_ = true

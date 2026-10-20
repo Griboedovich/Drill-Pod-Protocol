@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ct11nm4x84xtu"]
+
+[ext_resource type="Script" uid="uid://dkokacgbsrs75" path="res://constructions/drill_pod/control_panel/controll_panel.gd" id="1_qlgiq"]
+[ext_resource type="Script" uid="uid://bg3h4pcjqb30u" path="res://constructions/drill_pod/control_panel/camera_controller.gd" id="3_8pgvh"]
+[ext_resource type="PackedScene" uid="uid://232f3aspsn6n" path="res://constructions/drill_pod/control_panel/controll_cable/controll_cable.tscn" id="3_jcpne"]
+
+[sub_resource type="Environment" id="Environment_akig0"]
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_axm2t"]
+size = Vector3(6.977051, 1, 5.2025146)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axm2t"]
+size = Vector3(8.330597, 1, 5.1916504)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_axm2t"]
+
+[node name="ControlPanel" type="Node3D" unique_id=387047306]
+script = ExtResource("1_qlgiq")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1151103933]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1802850535]
+transform = Transform3D(1, 0, -4.371139e-08, 4.371139e-08, 1.9106855e-15, 1, 0, -1, 1.9106855e-15, 0, 3.8650246, 0)
+environment = SubResource("Environment_akig0")
+fov = 60.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot" unique_id=1058576452]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.6797614, 0)
+light_color = Color(0.98724204, 0.9746869, 0.97505766, 1)
+light_energy = 2.0
+
+[node name="ControllCable" parent="." unique_id=1319346626 instance=ExtResource("3_jcpne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5402918, 0)
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1809757513]
+script = ExtResource("3_8pgvh")
+
+[node name="Table" type="StaticBody3D" parent="." unique_id=1430861268]
+collision_mask = 129
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1795443805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, 0, -0.020812988)
+mesh = SubResource("BoxMesh_axm2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=195137618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0039978027, 0, -0.023071289)
+shape = SubResource("BoxShape3D_axm2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Table" unique_id=1597549663]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.172095, 7.7150326, -0.046142578)
+shape = SubResource("WorldBoundaryShape3D_axm2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Table" unique_id=442084532]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 3.4330654, 7.7150326, -0.046142578)
+shape = SubResource("WorldBoundaryShape3D_axm2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Table" unique_id=1663169966]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.044748306, 7.7150326, -2.6193035)
+shape = SubResource("WorldBoundaryShape3D_axm2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Table" unique_id=1973354203]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.045, 5, -2.619)
+shape = SubResource("WorldBoundaryShape3D_axm2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Table" unique_id=1072086991]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.044748306, 7.7150326, 2.5766523)
+shape = SubResource("WorldBoundaryShape3D_axm2t")
+metadata/_edit_lock_ = true

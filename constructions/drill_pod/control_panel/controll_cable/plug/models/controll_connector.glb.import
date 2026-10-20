@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dld2sjaqjcm5b"
-path="res://.godot/imported/controll_connector.glb-efe25d2098168f4b0a09ae25f67a3dc5.scn"
+path="res://.godot/imported/controll_connector.glb-f17e5b86f12b4c9eeff7322e5721921a.scn"
 
 [deps]
 
-source_file="res://constructions/drill_pod/control_panel/controll_cable/models/controll_connector.glb"
-dest_files=["res://.godot/imported/controll_connector.glb-efe25d2098168f4b0a09ae25f67a3dc5.scn"]
+source_file="res://constructions/drill_pod/control_panel/controll_cable/plug/models/controll_connector.glb"
+dest_files=["res://.godot/imported/controll_connector.glb-f17e5b86f12b4c9eeff7322e5721921a.scn"]
 
 [params]
 

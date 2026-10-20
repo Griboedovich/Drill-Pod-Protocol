@@ -1,27 +1,11 @@
 [gd_scene format=3 uid="uid://232f3aspsn6n"]
 
-[ext_resource type="PackedScene" uid="uid://dld2sjaqjcm5b" path="res://constructions/drill_pod/control_panel/controll_cable/models/controll_connector.glb" id="1_4q55b"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_axm2t"]
-radius = 0.1821289
-height = 0.5275879
+[ext_resource type="PackedScene" uid="uid://c255ondfsuelv" path="res://constructions/drill_pod/control_panel/controll_cable/plug/plug.tscn" id="1_4q55b"]
 
 [node name="ControllCable" type="Node3D" unique_id=1319346626]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1518872068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="controll_connector2" parent="RigidBody3D" unique_id=158493104 instance=ExtResource("1_4q55b")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1922098056]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1881296, 0)
-shape = SubResource("CapsuleShape3D_axm2t")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1452520461]
+[node name="FirstPlug" parent="." unique_id=950700488 instance=ExtResource("1_4q55b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="controll_connector" parent="RigidBody3D2" unique_id=2054579693 instance=ExtResource("1_4q55b")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1505337451]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18078613, 0)
-shape = SubResource("CapsuleShape3D_axm2t")
+[node name="SecondPlug" parent="." unique_id=1385580531 instance=ExtResource("1_4q55b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

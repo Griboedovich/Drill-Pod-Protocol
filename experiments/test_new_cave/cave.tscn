@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://c2u4n3wevnaeg"]
 
 [ext_resource type="Script" uid="uid://bqi2ae15dgrr5" path="res://experiments/test_new_cave/cave.gd" id="1_3ofdm"]
+[ext_resource type="PackedScene" uid="uid://bls3fyproqgkh" path="res://entities/enemies/test_enemy/enemy.tscn" id="2_jook8"]
 [ext_resource type="PackedScene" uid="uid://pqdv7pbrp6q5" path="res://experiments/test_new_cave/cave_manager/cave_manager.tscn" id="2_sx2hl"]
 [ext_resource type="Shader" uid="uid://dm3gvf50585f7" path="res://assets/shaders/lcd_chrom_aber.gdshader" id="3_sx2hl"]
+
+[sub_resource type="Curve3D" id="Curve3D_sx2hl"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.014, 0, 2.0614717, 0, 0, 0, 0, 0, 0, -0.831, 0, 1.8988252, 0, 0, 0, 0, 0, 0, -1.444, 0, 1.4675236, 0, 0, 0, 0, 0, 0, -1.851, 0, 0.8392626, 0, 0, 0, 0, 0, 0, -2.1149492, 0, 0, 0, 0, 0, 0, 0, 0, -1.948294, 0, -0.8065143, 0, 0, 0, 0, 0, 0, -1.604, 0, -1.5007302, 0, 0, 0, 0, 0, 0, -1.192, 0, -1.9042434, 0, 0, 0, 0, 0, 0, -0.504, 0, -2.315318, 0, 0, 0, 0, 0, 0, 0.438, 0, -2.4016516, 0, 0, 0, 0, 0, 0, 1.335, 0, -1.9661257, 0, 0, 0, 0, 0, 0, 1.9165616, 0, -1.4112071, 0, 0, 0, 0, 0, 0, 2.2595184, 0, -0.8263166, 0, 0, 0, 0, 0, 0, 2.3696053, 0, 0, 0, 0, 0, 0, 0, 0, 1.9622133, 0, 1.0367261, 0, 0, 0, 0, 0, 0, 1.108, 0, 1.8738698),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 16
 
 [sub_resource type="Environment" id="Environment_jook8"]
 background_mode = 1
@@ -22,8 +31,23 @@ shader_parameter/abberation_y = 0.03000004892500007
 
 [node name="Cave" type="Node3D" unique_id=1253914263]
 script = ExtResource("1_3ofdm")
+enemy_scene = ExtResource("2_jook8")
 
 [node name="CaveManager" parent="." unique_id=1693955330 instance=ExtResource("2_sx2hl")]
+
+[node name="EnemySpawnPath" type="Path3D" parent="." unique_id=1135125345]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 60, 0)
+curve = SubResource("Curve3D_sx2hl")
+
+[node name="EnemySpawnLocation" type="PathFollow3D" parent="EnemySpawnPath" unique_id=959690813]
+transform = Transform3D(0.19524506, 0, 0.9807325, 0, 0.9999819, 0, -0.9807479, 0, 0.19524199, -0.014, 0, 2.0614717)
+
+[node name="Marker3D" type="Marker3D" parent="EnemySpawnPath" unique_id=1832482754]
+gizmo_extents = 2.5
+
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1301610719]
+wait_time = 0.5
+autostart = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1762817183]
 visible = false
@@ -44,3 +68,5 @@ spot_angle = 53.77325
 material = SubResource("ShaderMaterial_oncu2")
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
